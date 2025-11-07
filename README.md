@@ -3,7 +3,7 @@
 This project uses Terraform to provision an AWS architecture entirely within [LocalStack](https://localstack.cloud/). It is based on the architecture diagram provided, allowing for local development, testing, and experimentation without incurring any AWS costs.
 
 The infrastructure built matches this diagram:
-
+![diagram](https://github.com/Tasneemsherif/terraform-with-local-stack/blob/main/diagram.png)
 
 ## Architecture Overview
 
