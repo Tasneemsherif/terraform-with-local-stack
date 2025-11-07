@@ -4,3 +4,4 @@
 .terraform.lock.hcl
 .ssh/*
 /terraform-with-local-stack/.terraform/*    
+*.terraform
