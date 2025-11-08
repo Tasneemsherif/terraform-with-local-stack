@@ -14,7 +14,7 @@ output "rds_endpoint" {
 }
 
 output "rds_password" {
-  description = "The generated password for the RDS database (for demo only)."
+  description = "The generated password for the RDS database."
   value       = random_string.db_password.result
   sensitive   = true
 }

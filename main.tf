@@ -262,7 +262,6 @@ resource "aws_lb_listener" "http" {
 }
 
 # --- FIREWALL (WAF) ---
-# This represents the pink firewall icon
 resource "aws_wafv2_web_acl" "main" {
   name  = "main-waf-acl"
   scope = "REGIONAL" # Use REGIONAL for ALB
@@ -292,7 +291,7 @@ resource "aws_wafv2_web_acl_association" "main" {
 }
 
 
-# --- EFS (The "Elastic" Pink Icon) ---
+# --- EFS ---
 
 resource "aws_efs_file_system" "main" {
   creation_token = "my-efs"
@@ -313,7 +312,7 @@ resource "aws_efs_mount_target" "az2" {
   security_groups = [aws_security_group.efs_sg.id]
 }
 
-# --- EC2 KEY PAIR (The "Key" Icon) ---
+# --- EC2 KEY PAIR ---
 
 resource "aws_key_pair" "deployer" {
   key_name   = "deployer-key"
@@ -364,7 +363,7 @@ resource "aws_autoscaling_group" "main" {
   target_group_arns = [aws_lb_target_group.main.arn]
 }
 
-# --- RDS DATABASE (The "R" Icon) ---
+# --- RDS DATABASE ---
 
 resource "random_string" "db_password" {
   length  = 16
@@ -394,7 +393,6 @@ resource "aws_db_instance" "main" {
   db_subnet_group_name = aws_db_subnet_group.main.id
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
   skip_final_snapshot  = true
-  # The problematic provisioner block has been removed from here.
 }
 
 # --- S3 BUCKET ---
